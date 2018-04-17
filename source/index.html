@@ -10,6 +10,8 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    </head>
   <body>
 
@@ -25,19 +27,42 @@
 
     <!-- add user module -->
 	
-	
+	<br />
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<!-- show user module -->
+				<table class="table table-striped table-bordered" id="listOfAllElements">
+					<thead>
+						<tr>
+						<th scope="col" style="width: 45%">Name</th>
+						<th scope="col" style="width: 45%">Anzahl</th>
+						<th scope="col" style="width: 10%">Optionen</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<td>Mark</td>
+						<td>Otto</td>
+						<td>@mdo</td>
+						</tr>
+						<tr>
+						<td>Jacob</td>
+						<td>Thornton</td>
+						<td>@fat</td>
+						</tr>
+						<tr>
+						<td>Larry</td>
+						<td>the Bird</td>
+						<td>@twitter</td>
+						</tr>
+					</tbody>
+				</table>
 				<ul id="user-list"></ul>
 				<div id="user-detail"></div>
 			</div>
 		</div>
 	</div>
-	<!-- Button trigger modal -->
-	
-	
     
 
     <!-- edit user module -->

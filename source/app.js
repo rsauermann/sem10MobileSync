@@ -27,12 +27,15 @@ function readUserData() {
 	usersRef.on("value", snap => {
 
 		userListUI.innerHTML = ""
+		var tableRef = document.getElementById('listOfAllElements').getElementsByTagName('tbody')[0];
+		tableRef.innerHTML = ""
+		// $("#listOfAllElements").empty();
 
 		snap.forEach(childSnap => {
 			let key = childSnap.key,
 				value = childSnap.val()
   			
-			let $li = document.createElement("li");
+			
 			
 			console.log(value);
 
@@ -49,15 +52,26 @@ function readUserData() {
 			deleteIconUI.innerHTML = " ☓";
 			deleteIconUI.setAttribute("userid", key);
 			deleteIconUI.addEventListener("click", deleteButtonClicked)
+		
+
+			// Insert a row in the table at the last row
+			var newRow   = tableRef.insertRow(tableRef.rows.length);
 			
-			$li.innerHTML = value.name;
-			$li.append(editIconUI);
-			$li.append(deleteIconUI);
-
-			$li.setAttribute("user-key", key);
-			$li.addEventListener("click", userClicked)
-			userListUI.append($li);
-
+			// Insert a cell in the row at index 0
+			var newCell1  = newRow.insertCell(0);
+			var newCell2  = newRow.insertCell(1);
+			var newCell3  = newRow.insertCell(2);
+			
+			// Append a text node to the cell
+			var rowName  = document.createTextNode(value.name);
+			var rowAnz  = document.createTextNode(value.anz);
+			
+			
+			
+			newCell1.appendChild(rowName);
+			newCell2.appendChild(rowAnz);
+			newCell3.appendChild(editIconUI);
+			newCell3.appendChild(deleteIconUI);
  		});
 
 
