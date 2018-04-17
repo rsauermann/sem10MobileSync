@@ -22,14 +22,12 @@ readUserData();
 // --------------------------
 function readUserData() {
 
-	const userListUI = document.getElementById("user-list");
+
 
 	usersRef.on("value", snap => {
 
-		userListUI.innerHTML = ""
 		var tableRef = document.getElementById('listOfAllElements').getElementsByTagName('tbody')[0];
 		tableRef.innerHTML = ""
-		// $("#listOfAllElements").empty();
 
 		snap.forEach(childSnap => {
 			let key = childSnap.key,
@@ -78,32 +76,6 @@ function readUserData() {
 	})
 
 }
-
-
-
-function userClicked(e) {
-
-
-		var userID = e.target.getAttribute("user-key");
-
-		const userRef = dbRef.child('things/' + userID);
-		const userDetailUI = document.getElementById("user-detail");
-
-		userRef.on("value", snap => {
-
-			userDetailUI.innerHTML = ""
-
-			snap.forEach(childSnap => {
-				var $p = document.createElement("p");
-				$p.innerHTML = childSnap.key  + " - " +  childSnap.val();
-				userDetailUI.append($p);
-			})
-
-		});
-	
-
-}
-
 
 
 
@@ -165,7 +137,9 @@ function deleteButtonClicked(e) {
 // --------------------------
 function editButtonClicked(e) {
 	
-	document.getElementById('edit-user-module').style.display = "block";
+
+	$('#editElementModal').modal('show');
+	
 
 	//set user id to the hidden input field
 	document.querySelector(".edit-userid").value = e.target.getAttribute("userid");
@@ -212,8 +186,7 @@ function saveUserBtnClicked(e) {
 
 
 	userRef.update(editedUserObject);
-
-	document.getElementById('edit-user-module').style.display = "none";
+	$("#editElementModal").modal("hide")
 
 
 }

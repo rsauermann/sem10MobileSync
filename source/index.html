@@ -10,8 +10,6 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    </head>
   <body>
 
@@ -41,73 +39,67 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						</tr>
-						<tr>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td>@fat</td>
-						</tr>
-						<tr>
-						<td>Larry</td>
-						<td>the Bird</td>
-						<td>@twitter</td>
-						</tr>
 					</tbody>
 				</table>
-				<ul id="user-list"></ul>
-				<div id="user-detail"></div>
 			</div>
 		</div>
 	</div>
-    
-
-    <!-- edit user module -->
-    <section id="edit-user-module">
-        <form>
-            <h2>Edit user</h2>
-            <input type="hidden" class="edit-userid">
-            name:<br>
-            <input type='text' data-key='name' class='edit-user-input'><br>
-            Anzahl:<br>
-            <input type='text' data-key='anz' class='edit-user-input'><br>
-            <button type='button' id="edit-user-btn">save</button>
-        </form>
-    </section>
+    	
 	
-	
-	
-	<!-- Modal -->
+	<!-- Modal add Dataset -->
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLongTitle">Neues Listenelement</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<div class="container-fluid">
-			<form>
-				Name:<br>
-				<input type='text' data-key='name' class='user-input'><br>
-				Anzahl:<br>
-				<input type='text' data-key='anz' class='user-input'><br>
-				<br />
-			</form>
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Neues Listenelement</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form style="text-align: center;">
+					Name:<br>
+					<input type='text' data-key='name' class='user-input'><br>
+					Anzahl:<br>
+					<input type='text' data-key='anz' class='user-input'><br>
+					<br />
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type='button' class="btn btn-success" id="add-user-btn" data-dismiss="modal">Zur Liste hinzufügen</button>
+			</div>
 			</div>
 		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type='button' class="btn btn-success" id="add-user-btn" data-dismiss="modal">Zur Liste hinzufügen</button>
-		</div>
-		</div>
 	</div>
-	</div>
+	
+	<!-- Modal edit Dataset -->
+	<div class="modal fade" id="editElementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle2">Bearbeiten von Element</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form style="text-align: center;">
+					<input type="hidden" class="edit-userid">
+					Name:<br>
+					<input type='text' data-key='name' class='edit-user-input'><br>
+					Anzahl:<br>
+					<input type='text' data-key='anz' class='edit-user-input'><br>
+					
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type='button' class="btn btn-success" id="edit-user-btn">Update Werte</button>
+			</div>
+			</div>
+		</div>
+	</div>	
 
 
     
