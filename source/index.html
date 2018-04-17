@@ -13,7 +13,14 @@
    </head>
   <body>
 
-    <h1>Einkaufsliste</h1>
+    <nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Einkaufsliste</a>
+		<form class="form-inline">
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+				Neues Element hinzufügen
+			</button>
+		</form>
+	</nav>
 
 
     <!-- add user module -->
@@ -21,24 +28,16 @@
 	
 	<div class="container">
 		<div class="row">
-			<div class="col-8">
+			<div class="col-12">
 				<!-- show user module -->
 				<ul id="user-list"></ul>
 				<div id="user-detail"></div>
 			</div>
-			<div class="col-4">
-				<form>
-					<h2>Neues Listenelement</h2>
-					Name:<br>
-					<input type='text' data-key='name' class='user-input'><br>
-					Anzahl:<br>
-					<input type='text' data-key='anz' class='user-input'><br>
-					<br />
-					<button type='button' class="btn btn-success" id="add-user-btn">Zur Liste hinzufügen</button>
-				</form>
-			</div>
 		</div>
 	</div>
+	<!-- Button trigger modal -->
+	
+	
     
 
     <!-- edit user module -->
@@ -53,6 +52,37 @@
             <button type='button' id="edit-user-btn">save</button>
         </form>
     </section>
+	
+	
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongTitle">Neues Listenelement</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<div class="container-fluid">
+			<form>
+				Name:<br>
+				<input type='text' data-key='name' class='user-input'><br>
+				Anzahl:<br>
+				<input type='text' data-key='anz' class='user-input'><br>
+				<br />
+			</form>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type='button' class="btn btn-success" id="add-user-btn" data-dismiss="modal">Zur Liste hinzufügen</button>
+		</div>
+		</div>
+	</div>
+	</div>
 
 
     
