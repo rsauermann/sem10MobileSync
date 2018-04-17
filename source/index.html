@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Synchronisation bei mobilen Diensten</title>
+    <title>Einkaufsliste</title>
     <link rel="stylesheet" href="style.css">
 	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,20 +13,33 @@
    </head>
   <body>
 
-    <h1>Firebase CRUD with Javascript
-        <br/><small><em>User App</em></small>
-    </h1>
+    <h1>Einkaufsliste</h1>
 
 
     <!-- add user module -->
-    <form>
-        <h2>Neues Listenelement</h2>
-        Name:<br>
-        <input type='text' data-key='name' class='user-input'><br>
-        Anzahl:<br>
-        <input type='text' data-key='anz' class='user-input'><br>
-        <button type='button' id="add-user-btn">add user</button>
-    </form>
+	
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-8">
+				<!-- show user module -->
+				<ul id="user-list"></ul>
+				<div id="user-detail"></div>
+			</div>
+			<div class="col-4">
+				<form>
+					<h2>Neues Listenelement</h2>
+					Name:<br>
+					<input type='text' data-key='name' class='user-input'><br>
+					Anzahl:<br>
+					<input type='text' data-key='anz' class='user-input'><br>
+					<br />
+					<button type='button' class="btn btn-success" id="add-user-btn">Zur Liste hinzufügen</button>
+				</form>
+			</div>
+		</div>
+	</div>
+    
 
     <!-- edit user module -->
     <section id="edit-user-module">
@@ -42,9 +55,7 @@
     </section>
 
 
-    <!-- show user module -->
-    <ul id="user-list"></ul>
-    <div id="user-detail"></div>
+    
 
 
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
