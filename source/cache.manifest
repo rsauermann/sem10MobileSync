@@ -1,9 +1,12 @@
 # Cache version #1
 
 CACHE:
+../index.php
 index.html
 app.js
 style.css
 lib/bootstrap.min.js
+lib/bootstrap.min.css
+lib/firebase.js
 lib/jquery-3.2.1.slim.min.js
 lib/popper.min.js

@@ -105,14 +105,7 @@ function addUserBtnClicked() {
         let value = addUserInputsUI[i].value;
         newUser[key] = value;
     }
-
 	usersRef.push(newUser)
-
-    
-   // console.log(myPro)
-   
-
-
 }
 
 
