@@ -54,7 +54,7 @@ Die CRUD-Funktionalität war zwar schon implementiert, jedoch wurde die gesamte 
 Von Firebase übernommen.
 
 ### Offline-Verfügbarkeit
-Firebase bietet die Funktionalität, jedoch ist das caching der Webapp die größere Herausforderung. Es ist jedoch möglich auf Mobilgeräten die Website zu cachen. Wenn man diese betrachtet, fehlen zwar css und js jedoch werden die Daten der Einkaufsliste, welche noch gecached sind, angzeigt.
+Firebase bietet die Funktionalität und die Webapp wurde auch so gebaut, um offline sinnvoll dargestellt zu werdene.
 
 ### System global erreichbar
 Deployed auf [Heroku](https://www.heroku.com/). Erreichbar unter [Click Me](https://sem10einkaufsliste.herokuapp.com).
