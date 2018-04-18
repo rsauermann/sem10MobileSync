@@ -19,13 +19,17 @@ Folgende Files sind notwendig um die Webapp zu deployen:
 
 ## Dokumentation
 ### Beschreibung des Synchronisationsansatzes und Design der gewählten Architektur (Interaktion, Datenhaltung)
-Der Synchronisationsansatz sieht vor immer die Daten mit der Datenbankabzugleichen wenn dies möglich ist. Sollte es nicht möglich sein, sollen trotzdem die eingegebene Daten gecached werden und bei der nächsten Verfügbarkeit der Datenenbank mit dieser Synchronisiert werden. Die gewählte Art die Benutzeroberfläche zu erstellen ist Webbasiert. Dies stellt die plattformunabhängigkeit in den Vordergrund.
+Der Synchronisationsansatz sieht vor immer die Daten mit der Datenbankabzugleichen wenn dies möglich ist. Sollte es nicht möglich sein, sollen trotzdem die eingegebene Daten gecached werden und bei der nächsten Verfügbarkeit der Datenenbank mit dieser Synchronisiert werden. Die gewählte Art die Benutzeroberfläche zu erstellen ist Webbasiert. Dies stellt die plattformunabhängigkeit in den Vordergrund. 
 
 ### Recherche möglicher Systeme bzw. Frameworks zur Synchronisation und Replikation der Daten
 Da im Frontend HTML, JS & CSS verwendet werden, bietet sich eine simple Synchronisation mittels JS an. Es gibt viele unterschiedliche Datenbanksysteme welche eine _Realtimedatabase_ anbieten. [Siehe hier für Liste](https://medium.baqend.com/real-time-databases-explained-why-meteor-rethinkdb-parse-and-firebase-dont-scale-822ff87d2f87). Es wurde sich für die folgenden Gründe für Firebase entschieden:
 * Es fehlt zwar die Möglichkeit komplexe Abfragen zu tätigen, ist jedoch bei dieser Anwendung nicht notwendig
 * Simpel da eine Firebasedatenbank als in der Cloud gehostetes _JSON_ gesehen werden kann
 * Bietet alle Features notwendig um die Aufgabe umzusetzen (z.B. Offline use)
+
+Nachteile von Firebase sind:
+* Provider ist vorgegeben (Kann nicht ausgesucht werden)
+* Volle Abhängigkeit von diesem Provider (Google)
 
 
 ### Dokumentation der gewählten Schnittstellen
