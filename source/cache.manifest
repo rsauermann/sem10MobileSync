@@ -1,6 +1,9 @@
 # Cache version #1
 
 CACHE:
-/index.html
-/app.js
-/style.css
+index.html
+app.js
+style.css
+lib/bootstrap.min.js
+lib/jquery-3.2.1.slim.min.js
+lib/popper.min.js
