@@ -6,9 +6,16 @@ Deployed auf [Heroku](https://www.heroku.com/). Erreichbar unter [Click Me](http
 
 ### Projekt
 Folgende Files sind notwendig um die Webapp zu deployen:
-* app.js
-* index.html
-* style.css
+* index.php
+* source/app.js
+* source/index.html
+* source/style.css
+* source/cache.manifest
+* source/lib/bootstrap.min.css
+* source/lib/bootstrap.min.js
+* source/lib/firebase.js
+* source/lib/jquery-3.2.1.slim.min.js
+* source/lib/popper.min.js
 
 ## Dokumentation
 ### Beschreibung des Synchronisationsansatzes und Design der gewählten Architektur (Interaktion, Datenhaltung)
@@ -48,13 +55,84 @@ Die Überprüfung ob die Synchronisation so stattfindet wie gewünscht, erfolgt 
 
 
 ### CRUD Implementierung
-Die CRUD-Funktionalität war zwar schon implementiert, jedoch wurde die gesamte GUI umgebaut, um auch auf mobilen Endgeräten eine akzeptable Bedienbarkeit aufzuweisen.
+Die CRUD-Funktionalität war zwar schon implementiert, jedoch wurde die gesamte GUI umgebaut, um auch auf mobilen Endgeräten eine akzeptable Bedienbarkeit aufzuweisen. Es folgt der Aufbau der delete Funktion.
+```
+function deleteButtonClicked(e) {
+
+		e.stopPropagation();
+
+		var userID = e.target.getAttribute("userid");
+
+		const userRef = dbRef.child('things/' + userID);
+		
+		userRef.remove();
+
+}
+```
+Und die Bearbeitung:
+```
+function editButtonClicked(e) {
+	
+
+	$('#editElementModal').modal('show');
+	
+
+	//set user id to the hidden input field
+	document.querySelector(".edit-userid").value = e.target.getAttribute("userid");
+
+	const userRef = dbRef.child('things/' + e.target.getAttribute("userid"));
+
+	// set data to the user field
+	const editUserInputsUI = document.querySelectorAll(".edit-user-input");
+
+
+	userRef.on("value", snap => {
+
+		for(var i = 0, len = editUserInputsUI.length; i < len; i++) {
+
+			var key = editUserInputsUI[i].getAttribute("data-key");
+					editUserInputsUI[i].value = snap.val()[key];
+		}
+
+	});
+
+
+
+
+	const saveBtn = document.querySelector("#edit-user-btn");
+	saveBtn.addEventListener("click", saveUserBtnClicked)
+}
+
+
+function saveUserBtnClicked(e) {
+ 
+	const userID = document.querySelector(".edit-userid").value;
+	const userRef = dbRef.child('things/' + userID);
+
+	var editedUserObject = {}
+
+	const editUserInputsUI = document.querySelectorAll(".edit-user-input");
+
+	editUserInputsUI.forEach(function(textField) {
+		let key = textField.getAttribute("data-key");
+		let value = textField.value;
+  		editedUserObject[textField.getAttribute("data-key")] = textField.value
+	});
+
+
+
+	userRef.update(editedUserObject);
+	$("#editElementModal").modal("hide")
+
+
+}
+```
 
 ### Implementierung eines Replikationsansatzes zur Konsistenzwahrung
-Von Firebase übernommen.
+Eine ideale Replikationsstrategie wäre eine Versionierung und eine Konfilktlösung bei Bearbeitung identer Datensätze. Bei dem Prototyp werden die zu ändernden Werte auf Firebase gepushed.
 
 ### Offline-Verfügbarkeit
-Firebase bietet die Funktionalität und die Webapp wurde auch so gebaut, um offline sinnvoll dargestellt zu werdene.
+Firebase bietet die Funktionalität und die Webapp wurde auch so gebaut, um offline sinnvoll dargestellt zu werden. Dies wird mittels HTML5 caching übernommen. Dafür wurde _cache.manifest_ erstellt und mit hat auf alle Files referenziert.
 
 ### System global erreichbar
 Deployed auf [Heroku](https://www.heroku.com/). Erreichbar unter [Click Me](https://sem10einkaufsliste.herokuapp.com).
